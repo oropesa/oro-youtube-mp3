@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Oro Youtube mp3</title>
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline'">
+    <link rel="stylesheet" href="./node_modules/uikit/dist/css/uikit.min.css" />
+    <style>.uk-tooltip { overflow-wrap: break-word; } /* For showing json errors in tooltip */</style>
+</head>
+<body>
+
+<div class="uk-margin-top uk-margin-bottom">
+    <div class="uk-container uk-text-small">
+
+        <div class="wrapper-file uk-flex uk-flex-wrap uk-width-1-1">
+            <div class="uk-width-1-2 uk-position-relative">
+                <div class="wrapper" uk-sticky="offset: 20">
+                <div class="uk-margin-right">
+
+                    <!-- TITLE -->
+                    <h3 class="uk-flex">
+                        <span>Oro Youtube mp3</span>
+                        <span class="uk-margin-small-left" uk-icon="icon: info; ratio: .7"
+                              uk-tooltip="pos: right; title: Descarga los audios de los videos de Youtube en formato mp3"></span>
+                        <a class="uk-link uk-flex" href="#modal-config" uk-toggle><span class="uk-margin-small-left" uk-icon="icon: cog; ratio: .7"
+                              uk-tooltip="pos: right; title: Configuración"></span></a>
+                    </h3>
+
+                    <!-- STEPS -->
+                    <small class="uk-display-block uk-margin-small-bottom">
+                        <em>Selecciona</em> la carpeta donde se guardarán los mp3.
+                    </small>
+                    <button id="selecter-button" class="uk-button uk-button-small uk-button-danger uk-margin-small-bottom">Seleccionar Carpeta</button>
+                    <div>· <small class="resume-text"><span id="selecter-text"><span class="uk-text-muted">Ruta de la carpeta</span></span></small></div>
+
+                    <hr class="uk-margin-small-top">
+
+                    <small class="uk-display-block"><em>Lista</em> los enlaces de los vídeos de youtube.</small>
+                    <small class="uk-display-block uk-margin-small-bottom uk-text-muted"><small>Separa los enlaces con salto de línea.</small></small>
+                    <label><small>
+                        <textarea id="analizer-textarea" class="uk-textarea uk-height-small"
+                                  placeholder="https://www.youtube.com/watch?v=s7IgBGT-1zs
+https://youtube.com/watch?v=Wjr0r7CD4cc
+https://youtu.be/0t0VrYgAlfA"
+                            ></textarea>
+                    </small></label>
+                    <div>· <small><em class="resume-text">
+                        <span class="uk-text-muted">Enlaces: </span>
+                        <span id="analizer-text" class="uk-text-danger">0</span>
+                    </em></small></div>
+
+                    <hr class="">
+
+                    <small class="uk-display-block uk-margin-small-bottom"><em>Valida</em> los enlaces.</small>
+                    <button id="validater-button" class="uk-button uk-button-small uk-button-primary" disabled>Validar</button>
+
+                    <small id="fail-validater-text" class="uk-alert uk-alert-danger uk-display-block uk-hidden"
+                           style="padding: .3rem .5rem;">
+                        <span>No se ha podido validar.</span>
+                        <span id="fail-validater-info"></span>
+                    </small>
+
+                </div>
+                </div>
+            </div>
+            <div class="uk-width-1-2 uk-margin-top">
+                <div class="uk-padding-small"></div>
+
+                <!-- LIST -->
+                <div id="list-of-links"></div>
+            </div>
+        </div>
+
+        <!-- MODAL -->
+        <div id="modal-config" uk-modal>
+            <div class="uk-modal-dialog uk-modal-body">
+                <button class="uk-modal-close-default" type="button" uk-close></button>
+
+                <h3 class="uk-flex" style="align-items: center">
+                    <span uk-icon="icon: cog; ratio: .8" style="margin-right: .5rem;"></span>
+                    <small>Configuración</small>
+                </h3>
+
+                <div>
+
+                    <div class="uk-margin">
+                        <label class="uk-form-label" for="config-google-api-key">Clave de Google API</label>
+                        <div class="uk-form-controls">
+                            <input class="uk-input uk-form-small" id="config-google-api-key" type="text" placeholder="" value="">
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script type="text/javascript" src="./node_modules/uikit/dist/js/uikit.min.js"></script>
+<script type="text/javascript" src="./node_modules/uikit/dist/js/uikit-icons.min.js"></script>
+
+<script>require( './index-front.js' );</script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+{
+  "name": "oro-youtube-mp3",
+  "version": "0.1.0",
+  "description": "An easy way to download and convert youtube video to mp3.",
+  "author": "Oropensando <carlos@oropensando.com>",
+  "license": "ISC",
+  "main": "main.js",
+  "dependencies": {
+    "electron-is": "^3.0.0",
+    "electron-json-storage": "^4.1.6",
+    "file-type": "^10.10.0",
+    "lodash": "^4.17.11",
+    "read-chunk": "^3.2.0",
+    "uikit": "^3.0.3",
+    "youtube-mp3-downloader": "^0.5.3"
+  },
+  "devDependencies": {
+    "electron-builder": "^20.39.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron .",
+    "pack": "build --dir",
+    "dist": "build"
+  },
+  "build": {
+    "appId": "oro-youtube-mp3.oropensando",
+    "productName": "Oro Youtube mp3",
+    "asar": true,
+    "dmg": {
+      "contents": [
+        {
+          "x": 110,
+          "y": 150
+        },
+        {
+          "x": 240,
+          "y": 150,
+          "type": "link",
+          "path": "/Applications"
+        }
+      ]
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ]
+    },
+    "win": {
+      "target": "NSIS",
+      "icon": "build/icon.ico",
+      "extraFiles": [
+        {
+          "from": "ffmpeg",
+          "to": "ffmpeg",
+          "filter": [ "**/*" ]
+        }
+      ]
+    }
+  }
+}
